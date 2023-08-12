@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+        {{category.description|truncatewords:150 }}
+{% endblock %}
+{% block title %}
+      {{product.name}} - SHOKEEP PVT LTD
+{% endblock %}
+{% block content %}
+<div class="container">
+<div class="detail_image_padding">
+  <p><a href="{% url 'store:allprodcat' %}">Home</a> | <a href="{{product.category.get_url}}">{{product.category}}</a>|{{product.name}}</p>
+</div>
+<div>
+
+
+     <div class="row">
+   <div class="col-md-12 col-sm-12 col-lg-6">
+     <div class="card p-3 shadow">
+     <div class="detail_image_padding">
+  <div>
+    <div>
+      <center>
+      <img src="{{product.image.url}}" alt="{{product.name}}" width="300px;" height="300px;">
+        </center>
+    </div>
+  </div>
+       </div>
+       </div>
+  </div>
+   <div class="col-md-12 col-sm-12 col-lg-6">
+     <div class="card_body">
+     <div class="card p-3 shadow">
+    <div class="prod_name">
+    <div>
+      <h3><u>{{product.name}}</u></h3>
+    </div>
+  </div>
+       <div class="card-body">
+    <div>
+    <div >
+      {% if product.stock <= 0 %}
+        <h5>Not Available</H5>
+      {% else %}
+      <h5>Rs:{{product.price}}</h5>
+      {% endif %}
+    </div>
+  </div>
+    <div>
+    <div>
+      <p class="text-justify">{{product.description}}</p>
+    </div>
+  </div>
+         <div class="card p-2 shadow">
+           <div class="card-body">
+           <div class="form-group">
+             <a class="btn btn-success p-3 shadow form-control" href="">Buy Now</a>
+         </div>
+             </div>
+           <div class="card-body">
+  {% if product.stock <= 0 %}
+    <h5>Out of stock</H5>
+  {% else %}
+    <a class="btn btn-warning p-3 shadow form-control" href="{% url 'cart:add_cart' product.id %}">Add to cart</a>
+  {% endif %}
+             </div>
+           </div>
+           </div>
+            </div>
+         </div>
+       </div>
+      </div>
+  </div>
+     </div>
+{% endblock %}
+</div>
+  </div>
