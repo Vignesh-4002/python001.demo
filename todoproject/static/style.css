@@ -1,0 +1,19 @@
+.banner{
+    background-color:#00827F;
+    width:100%;
+    height:100px;
+    margin-bottom:15px;
+}
+.banner-text{
+    color:white;
+    top:5%;
+    left:45%;
+    position:absolute;
+    transform:transform;
+}
+.form-text{
+    background-color:#8FBC8B
+}
+.bg{
+background-color:#98FB98
+}

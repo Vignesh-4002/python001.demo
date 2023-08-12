@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+<div class="row">
+    <h3>Task Details</h3>
+                <div class="p-3 shadow card">
+                    <div class="card-body">
+                        <h4 class="card-title">{{task.name}}</h4>
+                        <p><b>{{task.priority}}</b></p>
+                        <div class="position-absolute top-0 end-0 p-3 " style="height:25px">
+                          <h6>{{task.date}}</h6>
+                        </div>
+                        <div class="position-absolute 2 end-0 p-3 " style="height:25px">
+                          <button type="button" ><a class="btn btn-success" href="{% url 'cbvhome' %}">Home</a> </button>
+                        </div>
+
+                        <a class="btn btn-warning" style="width:291px;" href="{% url 'cbvdelete' task.id %}">Completed</a>
+                        <a class="btn btn-success" style="width:291px;" href="{% url 'cbvupdate' task.id %}">Update</a>
+
+                    </div>
+                </div>
+            </div>
+    </div>
+{% endblock %}
